@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import RootLayout from './layout/RootLayout.jsx';
 import Home from "./pages/Home/Home.jsx";
 import Subscribe from './pages/Subscribe/Subscribe.jsx';
-git 
+
 function App() {
   return (
     <BrowserRouter>
