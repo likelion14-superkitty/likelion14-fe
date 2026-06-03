@@ -1,46 +1,50 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const HeaderContainer = styled.div`
-    width: 1440px;
+    width: 100vw;
     height: 96px;
-    background: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 269px;
+    position: relative;
 `;
 
-const Title = styled.p`
+const TitleContainer = styled.p`
+    left: 583px;
+    top: 29px;
+    position: absolute;
+`;
+
+const Title = styled.span`
     color: #4A25ED;
     font-size: 25px;
     font-family: Pretendard Variable;
     font-weight: 300;
-    margin-left: 583px;
 `;
 
 const RightContainer = styled.div`
-    width: 100%;
-    height: 100%;
-    justify-content: flex-start;
+    left: 997px;
+    top: 22px;
+    position: absolute;
     align-items: center;
     gap: 91px;
-    display: inline-flex;
+    display: flex;
 `;
 
-const Line = styled.div`    
-    width: 0px;
-    height: 51px;
+const Line = styled.div`
+    width: 51px;
+    height: 0px;
+    transform: rotate(90deg);
     outline: 1px #4A25ED solid;
+    outline-offset: -0.50px;
 `;
 
 const ButtonContainer = styled.div`
-    justify-content: flex-start;    
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
     gap: 62px;
-    display: inline-flex;
 `;
 
-const ButtonTitle = styled.p`
+const ButtonTitle = styled.span`
     color: #4A25ED;
     font-size: 30px;
     font-family: Pretendard Variable;
@@ -48,14 +52,17 @@ const ButtonTitle = styled.p`
 `;
 
 export default function Header() {
+
+    const navigate = useNavigate();
+
     return (
         <HeaderContainer>
-            <Title>skunivlikelion</Title>
+            <TitleContainer><Title onClick={() => navigate("/")}>skunivlikelion</Title></TitleContainer>
             <RightContainer>
                 <Line />
                 <ButtonContainer>
-                    <ButtonTitle>홈</ButtonTitle>
-                    <ButtonTitle>구독하기</ButtonTitle>
+                    <ButtonTitle onClick={() => navigate("/home")}>홈</ButtonTitle>
+                    <ButtonTitle onClick={() => navigate("/subscribe")}>구독하기</ButtonTitle>
                 </ButtonContainer>
             </RightContainer>
         </HeaderContainer>
