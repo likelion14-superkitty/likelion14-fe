@@ -4,13 +4,14 @@ import letter from "../../assets/images/letter.svg";
 import TopSection from "../TopSection/TopSection.jsx";
 import CollabSection from "../CollabSection/CollabSection.jsx";
 import SessionSection from "../SessionSection/SessionSection.jsx";
+import Vector from "../../assets/icons/Vector.svg";
 
 export default function Subscribe() {
     return (
         <>
             <TopSection 
                 first="매주 만나는" second="멋쟁이사자" third="뉴스레터."
-                mainImage={letter} width="379.41px" height="408.60px" left="509px" top="738.39px" transform="rotate(-11deg)"
+                mainImage={letter} width="379.41px" height="408.60px" left="509px" top="738.39px" transform="rotate(-11deg)" vector={Vector}
             />
             <CollabSection />
             <SessionSection />
