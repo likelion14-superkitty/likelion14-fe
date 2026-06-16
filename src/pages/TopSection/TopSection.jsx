@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
     width: 100vw;
@@ -51,7 +52,19 @@ const MainImage = styled.img`
     transform-origin: top left;
 `;
 
-export default function TopSection({first, second, third, mainImage, subImage, width, height, top, left, transform}) {
+const Vector = styled.img`
+    width: 23px;
+    height: 47px;
+    left: 70px;
+    top: 128px;
+    position: absolute;
+    cursor: pointer;
+`;
+
+export default function TopSection({first, second, third, mainImage, subImage, width, height, top, left, transform, vector}) {
+    
+    const navigate = useNavigate();
+    
     return (
         <Container>
             <FirstP><StyledSpan size="90px">{first}</StyledSpan></FirstP>
@@ -59,6 +72,7 @@ export default function TopSection({first, second, third, mainImage, subImage, w
             <ThirdP><StyledSpan>{third}</StyledSpan></ThirdP>
             {mainImage && <MainImage src={mainImage} $width={width} $height={height} $top={top} $left={left} $transform={transform} />}
             {subImage && <SubImage src={subImage} />}
+            {vector && <Vector src={vector} onClick={() => navigate("/home")}/>}
         </Container>
     );
 }
